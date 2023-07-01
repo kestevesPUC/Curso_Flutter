@@ -26,13 +26,12 @@ class MyHomePage extends StatelessWidget {
           title: const Text("Despesas Pessoais"),
         ),
         body: const SingleChildScrollView(
-          child: Column(
-            crossAxisAlignment: CrossAxisAlignment.stretch,
-            children: <Widget>[
-              TransactionChart(),
-              TransactionUser(),
-            ],
-          ),
-        ));
+            child: Column(
+          crossAxisAlignment: CrossAxisAlignment.stretch,
+          children: <Widget>[
+            TransactionChart(),
+            TransactionUser(),
+          ],
+        )));
   }
 }
