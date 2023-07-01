@@ -5,7 +5,7 @@ import 'package:intl/intl.dart';
 class TransactionList extends StatelessWidget {
   final List<Transaction> transaction;
 
-  TransactionList(this.transaction);
+  const TransactionList(this.transaction, {super.key});
 
   @override
   Widget build(BuildContext context) {
@@ -15,7 +15,7 @@ class TransactionList extends StatelessWidget {
           child: Row(
             children: <Widget>[
               Container(
-                margin: EdgeInsets.symmetric(
+                margin: const EdgeInsets.symmetric(
                   horizontal: 15,
                   vertical: 10,
                 ),
@@ -25,10 +25,10 @@ class TransactionList extends StatelessWidget {
                     width: 2,
                   ),
                 ),
-                padding: EdgeInsets.all(10),
+                padding: const EdgeInsets.all(10),
                 child: Text(
                   'R\$ ${tr.value.toStringAsFixed(2)}',
-                  style: TextStyle(
+                  style: const TextStyle(
                     fontWeight: FontWeight.bold,
                     fontSize: 20,
                     color: Colors.purple,
@@ -40,7 +40,7 @@ class TransactionList extends StatelessWidget {
                 children: <Widget>[
                   Text(
                     tr.title,
-                    style: TextStyle(
+                    style: const TextStyle(
                       fontWeight: FontWeight.bold,
                       fontSize: 16,
                     ),

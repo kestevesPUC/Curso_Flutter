@@ -2,14 +2,14 @@ import 'package:expenses/models/components/transaction_chart.dart';
 import 'package:expenses/models/components/transaction_user.dart';
 import 'package:flutter/material.dart';
 
-main() => runApp(ExpensesApp());
+main() => runApp(const ExpensesApp());
 
 class ExpensesApp extends StatelessWidget {
   const ExpensesApp({super.key});
 
   @override
   Widget build(BuildContext context) {
-    return MaterialApp(
+    return const MaterialApp(
       debugShowCheckedModeBanner: false,
       home: MyHomePage(),
     );
@@ -17,21 +17,22 @@ class ExpensesApp extends StatelessWidget {
 }
 
 class MyHomePage extends StatelessWidget {
-  MyHomePage({super.key});
+  const MyHomePage({super.key});
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(
-        title: Text("Despesas Pessoais"),
-      ),
-      body: const Column(
-        crossAxisAlignment: CrossAxisAlignment.stretch,
-        children: <Widget>[
-          TransactionChart(),
-          TransactionUser(),
-        ],
-      ),
-    );
+        appBar: AppBar(
+          title: const Text("Despesas Pessoais"),
+        ),
+        body: const SingleChildScrollView(
+          child: Column(
+            crossAxisAlignment: CrossAxisAlignment.stretch,
+            children: <Widget>[
+              TransactionChart(),
+              TransactionUser(),
+            ],
+          ),
+        ));
   }
 }
