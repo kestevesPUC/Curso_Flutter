@@ -10,10 +10,10 @@ class TransactionChart extends StatefulWidget {
 class _TransactionChartState extends State<TransactionChart> {
   @override
   Widget build(BuildContext context) {
-    return const SizedBox(
+    return SizedBox(
       width: double.infinity,
       child: Card(
-        color: Colors.blue,
+        color: Theme.of(context).colorScheme.secondary,
         elevation: 5,
         child: Text("Gráfico"),
       ),
