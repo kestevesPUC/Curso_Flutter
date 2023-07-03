@@ -1,4 +1,4 @@
-import 'package:expenses/models/components/transaction_chart.dart';
+import 'package:expenses/models/components/chart.dart';
 import 'package:expenses/models/components/transaction_form.dart';
 import 'package:expenses/models/components/transaction_list.dart';
 import 'package:expenses/models/transaction.dart';
@@ -38,9 +38,15 @@ class MyHomePage extends StatefulWidget {
 
 class _MyHomePageState extends State<MyHomePage> {
   final List<Transaction> _transactions = [
-    // Transaction('t1', 'Tênis de Corrida', 200.99),
-    // Transaction('t2', 'Conta Faculdade', 350),
+    Transaction('t1', 'Tênis de Corrida', 200.99),
+    Transaction('t2', 'Conta Faculdade', 350),
   ];
+
+  List<Transaction> get _recentTransactions {
+    return _transactions.where((tr) {
+      return tr.date.isAfter(DateTime.now().subtract(const Duration(days: 7)));
+    }).toList();
+  }
 
   void _creatAndAddTransaction(String title, double value) {
     setState(() => _transactions
@@ -72,7 +78,7 @@ class _MyHomePageState extends State<MyHomePage> {
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.stretch,
           children: [
-            const TransactionChart(),
+            Chart(_recentTransactions),
             TransactionList(_transactions),
           ],
         ),
