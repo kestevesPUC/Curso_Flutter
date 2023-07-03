@@ -12,7 +12,9 @@ class ExpensesApp extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final ThemeData theme = ThemeData();
+    final ThemeData theme = ThemeData(
+      fontFamily: 'Quicksand',
+    );
 
     return MaterialApp(
       debugShowCheckedModeBanner: false,
@@ -35,9 +37,9 @@ class MyHomePage extends StatefulWidget {
 }
 
 class _MyHomePageState extends State<MyHomePage> {
-  final _transactions = [
-    Transaction('t1', 'Tênis de Corrida', 200.99),
-    Transaction('t2', 'Conta Faculdade', 350),
+  final List<Transaction> _transactions = [
+    // Transaction('t1', 'Tênis de Corrida', 200.99),
+    // Transaction('t2', 'Conta Faculdade', 350),
   ];
 
   void _creatAndAddTransaction(String title, double value) {
