@@ -11,15 +11,12 @@ class TransactionUser extends StatefulWidget {
   State<TransactionUser> createState() => _TransactionUserState();
 }
 
-final _transaction = [
-  Transaction('t1', 'Tênis de Corrida', 200.99),
-  Transaction('t2', 'Conta Faculdade', 350),
-];
+final List<Transaction> _transaction = [];
 
 class _TransactionUserState extends State<TransactionUser> {
   /// Este método recebe um título e um valor, cria uma transaction,e retorna a mesma;
-  _createTransaction(String title, double value) {
-    return Transaction(Random().nextDouble().toString(), title, value);
+  _createTransaction(String title, double value, DateTime date) {
+    return Transaction(Random().nextDouble().toString(), title, value, date);
   }
 
   /// Este método adiciona uma transaction à lista de transactions;
@@ -27,9 +24,9 @@ class _TransactionUserState extends State<TransactionUser> {
     setState(() => _transaction.add(t));
   }
 
-  void _creatAndAddTransaction(String title, double value) {
-    setState(() => _transaction
-        .add(Transaction(Random().nextDouble().toString(), title, value)));
+  void _creatAndAddTransaction(String title, double value, DateTime? date) {
+    setState(() => _transaction.add(
+        Transaction(Random().nextDouble().toString(), title, value, date!)));
   }
 
   @override
